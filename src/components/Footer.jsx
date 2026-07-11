@@ -97,7 +97,7 @@ const Footer = () => {
             <span className="w-16 h-px bg-gold/20" />
           </div>
           <p className="text-cream/30 text-xs">
-            Hosted with love by [Your Name]
+            Hosted with love by Family
           </p>
         </div>
       </motion.div>
