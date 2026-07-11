@@ -8,28 +8,35 @@ import RSVPForm from './components/RSVPForm'
 import Footer from './components/Footer'
 
 function App() {
-  const [isMuted, setIsMuted] = useState(true)
+  const [isMuted, setIsMuted] = useState(false)
   const audioRef = useRef(null)
 
   useEffect(() => {
     if (audioRef.current) {
       audioRef.current.volume = 0.5
+      audioRef.current.play().catch(() => {
+        // Browser blocked autoplay — user will need to click unmute
+        setIsMuted(true)
+        audioRef.current.muted = true
+      })
     }
   }, [])
 
   const toggleMute = () => {
     if (!audioRef.current) return
     if (isMuted) {
+      audioRef.current.muted = false
       audioRef.current.play().catch(() => {})
+    } else {
+      audioRef.current.muted = true
     }
-    audioRef.current.muted = !audioRef.current.muted
     setIsMuted(!isMuted)
   }
 
   return (
     <div className="min-h-screen bg-black text-cream font-body">
       {/* Background music - autoplay muted */}
-      <audio ref={audioRef} loop muted autoPlay>
+      <audio ref={audioRef} loop autoPlay>
         <source src="/music/background.mp3" type="audio/mpeg" />
       </audio>
 
