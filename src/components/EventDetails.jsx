@@ -55,7 +55,7 @@ const EventDetails = () => {
           >
             <p className="text-gold/70 text-sm uppercase tracking-widest mb-2">Venue</p>
             <a
-              href="https://www.google.com/maps/search/?api=1&query=The+Serene+Woodlands+200+BE+Rose+St+Inaon+Pulilan+Bulacan"
+              href="https://www.google.com/maps/place/The+Serene+Woodlands+Private+Resort+%26+Events+Place/@14.9506503,120.6792961,12z/data=!4m10!1m2!2m1!1sThe+Serene+Woodlands+200+BE+Rose+St+Inaon+Pulilan+Bulacan!3m6!1s0x339655006538ee01:0x9980e919fc4de030!8m2!3d14.9506503!4d120.8317314!15sCjlUaGUgU2VyZW5lIFdvb2RsYW5kcyAyMDAgQkUgUm9zZSBTdCBJbmFvbiBQdWxpbGFuIEJ1bGFjYW5aOyI5dGhlIHNlcmVuZSB3b29kbGFuZHMgMjAwIGJlIHJvc2Ugc3QgaW5hb24gcHVsaWxhbiBidWxhY2FukgENc3dpbW1pbmdfcG9vbJoBRENpOURRVWxSUVVOdlpFTm9kSGxqUmpsdlQyMTBTRkZyUm0xUlZrRjRWVEZTYkdSdVdqUldNMDVQVWtWYWNFMVdSUkFC4AEA-gEECF0QQw!16s%2Fg%2F11xdk03nvf?entry=ttu&g_ep=EgoyMDI2MDcwOC4wIKXMDSoASAFQAw%3D%3D"
               target="_blank"
               rel="noopener noreferrer"
               className="group"
