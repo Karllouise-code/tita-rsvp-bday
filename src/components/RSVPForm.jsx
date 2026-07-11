@@ -1,8 +1,37 @@
-import { useForm, ValidationError } from '@formspree/react'
+import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { db } from '../firebase'
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore'
 
 const RSVPForm = () => {
-  const [state, handleSubmit] = useForm('xjgqnnak')
+  const [status, setStatus] = useState('idle') // idle, submitting, succeeded, error
+  const [formData, setFormData] = useState({
+    name: '',
+    attending: '',
+    guests: 1,
+    message: '',
+  })
+
+  const handleChange = (e) => {
+    const { name, value } = e.target
+    setFormData((prev) => ({ ...prev, [name]: value }))
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    setStatus('submitting')
+    try {
+      await addDoc(collection(db, 'rsvps'), {
+        ...formData,
+        guests: Number(formData.guests),
+        createdAt: serverTimestamp(),
+      })
+      setStatus('succeeded')
+    } catch (err) {
+      console.error('Error adding document: ', err)
+      setStatus('error')
+    }
+  }
 
   return (
     <section className="py-20 px-4">
@@ -28,7 +57,7 @@ const RSVPForm = () => {
         </div>
 
         <AnimatePresence mode="wait">
-          {state.succeeded ? (
+          {status === 'succeeded' ? (
             <motion.div
               key="success"
               initial={{ opacity: 0, scale: 0.9 }}
@@ -54,10 +83,11 @@ const RSVPForm = () => {
                   type="text"
                   name="name"
                   required
+                  value={formData.name}
+                  onChange={handleChange}
                   className="w-full px-4 py-3 bg-transparent border border-gold/30 rounded-lg text-cream placeholder-cream/30 focus:outline-none focus:border-gold transition-colors"
                   placeholder="Juan Dela Cruz"
                 />
-                <ValidationError field="name" errors={state.errors} className="text-red-400 text-xs mt-1" />
               </div>
 
               <div>
@@ -71,6 +101,8 @@ const RSVPForm = () => {
                       name="attending"
                       value="Joyfully Accept"
                       required
+                      checked={formData.attending === 'Joyfully Accept'}
+                      onChange={handleChange}
                       className="w-4 h-4 accent-gold"
                     />
                     <span className="text-cream">Joyfully Accept</span>
@@ -81,12 +113,13 @@ const RSVPForm = () => {
                       name="attending"
                       value="Regretfully Decline"
                       required
+                      checked={formData.attending === 'Regretfully Decline'}
+                      onChange={handleChange}
                       className="w-4 h-4 accent-gold"
                     />
                     <span className="text-cream">Regretfully Decline</span>
                   </label>
                 </div>
-                <ValidationError field="attending" errors={state.errors} className="text-red-400 text-xs mt-1" />
               </div>
 
               <div>
@@ -96,9 +129,10 @@ const RSVPForm = () => {
                 <input
                   type="number"
                   name="guests"
-                  defaultValue="1"
                   min="1"
                   max="10"
+                  value={formData.guests}
+                  onChange={handleChange}
                   className="w-full px-4 py-3 bg-transparent border border-gold/30 rounded-lg text-cream focus:outline-none focus:border-gold transition-colors"
                 />
               </div>
@@ -110,12 +144,14 @@ const RSVPForm = () => {
                 <textarea
                   name="message"
                   rows={3}
+                  value={formData.message}
+                  onChange={handleChange}
                   className="w-full px-4 py-3 bg-transparent border border-gold/30 rounded-lg text-cream placeholder-cream/30 focus:outline-none focus:border-gold transition-colors resize-none"
                   placeholder="A birthday message for Rose..."
                 />
               </div>
 
-              {state.errors && (
+              {status === 'error' && (
                 <p className="text-red-400 text-sm text-center">
                   Something went wrong. Please try again.
                 </p>
@@ -123,12 +159,12 @@ const RSVPForm = () => {
 
               <motion.button
                 type="submit"
-                disabled={state.submitting}
+                disabled={status === 'submitting'}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 className="w-full py-3 bg-gold text-black font-semibold rounded-lg hover:bg-gold-light transition-colors disabled:opacity-50"
               >
-                {state.submitting ? 'Sending...' : 'Send RSVP'}
+                {status === 'submitting' ? 'Sending...' : 'Send RSVP'}
               </motion.button>
             </motion.form>
           )}
