@@ -1,42 +1,8 @@
-import { useState } from 'react'
+import { useForm, ValidationError } from '@formspree/react'
 import { motion, AnimatePresence } from 'framer-motion'
 
-// TODO: Replace with your actual Formspree form ID
-const FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID'
-
 const RSVPForm = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    attending: '',
-    guests: '1',
-    message: '',
-  })
-  const [status, setStatus] = useState('idle') // idle | submitting | success | error
-
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value })
-  }
-
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    setStatus('submitting')
-
-    try {
-      const response = await fetch(FORMSPREE_ENDPOINT, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
-      })
-
-      if (response.ok) {
-        setStatus('success')
-      } else {
-        setStatus('error')
-      }
-    } catch {
-      setStatus('error')
-    }
-  }
+  const [state, handleSubmit] = useForm('xjgqnnak')
 
   return (
     <section className="py-20 px-4">
@@ -62,7 +28,7 @@ const RSVPForm = () => {
         </div>
 
         <AnimatePresence mode="wait">
-          {status === 'success' ? (
+          {state.succeeded ? (
             <motion.div
               key="success"
               initial={{ opacity: 0, scale: 0.9 }}
@@ -87,12 +53,11 @@ const RSVPForm = () => {
                 <input
                   type="text"
                   name="name"
-                  value={formData.name}
-                  onChange={handleChange}
                   required
                   className="w-full px-4 py-3 bg-transparent border border-gold/30 rounded-lg text-cream placeholder-cream/30 focus:outline-none focus:border-gold transition-colors"
                   placeholder="Juan Dela Cruz"
                 />
+                <ValidationError field="name" errors={state.errors} className="text-red-400 text-xs mt-1" />
               </div>
 
               <div>
@@ -104,9 +69,7 @@ const RSVPForm = () => {
                     <input
                       type="radio"
                       name="attending"
-                      value="yes"
-                      checked={formData.attending === 'yes'}
-                      onChange={handleChange}
+                      value="Joyfully Accept"
                       required
                       className="w-4 h-4 accent-gold"
                     />
@@ -116,15 +79,14 @@ const RSVPForm = () => {
                     <input
                       type="radio"
                       name="attending"
-                      value="no"
-                      checked={formData.attending === 'no'}
-                      onChange={handleChange}
+                      value="Regretfully Decline"
                       required
                       className="w-4 h-4 accent-gold"
                     />
                     <span className="text-cream">Regretfully Decline</span>
                   </label>
                 </div>
+                <ValidationError field="attending" errors={state.errors} className="text-red-400 text-xs mt-1" />
               </div>
 
               <div>
@@ -134,8 +96,7 @@ const RSVPForm = () => {
                 <input
                   type="number"
                   name="guests"
-                  value={formData.guests}
-                  onChange={handleChange}
+                  defaultValue="1"
                   min="1"
                   max="10"
                   className="w-full px-4 py-3 bg-transparent border border-gold/30 rounded-lg text-cream focus:outline-none focus:border-gold transition-colors"
@@ -148,15 +109,13 @@ const RSVPForm = () => {
                 </label>
                 <textarea
                   name="message"
-                  value={formData.message}
-                  onChange={handleChange}
                   rows={3}
                   className="w-full px-4 py-3 bg-transparent border border-gold/30 rounded-lg text-cream placeholder-cream/30 focus:outline-none focus:border-gold transition-colors resize-none"
                   placeholder="A birthday message for Rose..."
                 />
               </div>
 
-              {status === 'error' && (
+              {state.errors && (
                 <p className="text-red-400 text-sm text-center">
                   Something went wrong. Please try again.
                 </p>
@@ -164,12 +123,12 @@ const RSVPForm = () => {
 
               <motion.button
                 type="submit"
-                disabled={status === 'submitting'}
+                disabled={state.submitting}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 className="w-full py-3 bg-gold text-black font-semibold rounded-lg hover:bg-gold-light transition-colors disabled:opacity-50"
               >
-                {status === 'submitting' ? 'Sending...' : 'Send RSVP'}
+                {state.submitting ? 'Sending...' : 'Send RSVP'}
               </motion.button>
             </motion.form>
           )}
