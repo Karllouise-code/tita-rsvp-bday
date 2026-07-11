@@ -54,8 +54,8 @@ const EventDetails = () => {
             className="p-6 border border-gold/20 rounded-lg bg-black/50"
           >
             <p className="text-gold/70 text-sm uppercase tracking-widest mb-2">Venue</p>
-            <p className="font-heading text-xl text-cream">[Zambales Resort]</p>
-            <p className="text-cream/50 text-sm mt-1">[Full address TBD]</p>
+            <p className="font-heading text-xl text-cream">The Serene Woodlands</p>
+            <p className="text-cream/50 text-sm mt-1">200 BE Rose St., Inaon, Pulilan, Bulacan</p>
           </motion.div>
 
           <motion.div
