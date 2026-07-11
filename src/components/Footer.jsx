@@ -1,20 +1,6 @@
-import { useState, useRef } from 'react'
 import { motion } from 'framer-motion'
 
 const Footer = () => {
-  const [isPlaying, setIsPlaying] = useState(false)
-  const audioRef = useRef(null)
-
-  const toggleMusic = () => {
-    if (!audioRef.current) return
-    if (isPlaying) {
-      audioRef.current.pause()
-    } else {
-      audioRef.current.play()
-    }
-    setIsPlaying(!isPlaying)
-  }
-
   const handleShare = async () => {
     const shareData = {
       title: "Rose's 60th Birthday Celebration",
@@ -37,12 +23,6 @@ const Footer = () => {
 
   return (
     <footer className="py-16 px-4 border-t border-gold/20">
-      {/* Background music — user provides audio file */}
-      <audio ref={audioRef} loop>
-        {/* TODO: Add your music file to public/music/background.mp3 */}
-        <source src="/music/background.mp3" type="audio/mpeg" />
-      </audio>
-
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -63,30 +43,6 @@ const Footer = () => {
           >
             Share Invitation
           </motion.button>
-        </div>
-
-        {/* Music Toggle */}
-        <div>
-          <motion.button
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-            onClick={toggleMusic}
-            className="w-12 h-12 rounded-full border border-gold/40 flex items-center justify-center text-gold/60 hover:text-gold hover:border-gold transition-colors mx-auto"
-            title={isPlaying ? 'Pause music' : 'Play music'}
-          >
-            {isPlaying ? (
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z" />
-              </svg>
-            ) : (
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z" />
-              </svg>
-            )}
-          </motion.button>
-          <p className="text-cream/30 text-xs mt-2">
-            {isPlaying ? 'Playing' : 'Click for music'}
-          </p>
         </div>
 
         {/* Credits */}
