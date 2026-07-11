@@ -31,7 +31,7 @@ const EventDetails = () => {
           >
             <p className="text-gold/70 text-sm uppercase tracking-widest mb-2">Date</p>
             <p className="font-heading text-xl text-cream">August 16, 2026</p>
-            <p className="text-cream/50 text-sm mt-1">Sunday</p>
+            <p className="text-cream/70 text-sm mt-1">Sunday</p>
           </motion.div>
 
           <motion.div
@@ -43,7 +43,7 @@ const EventDetails = () => {
           >
             <p className="text-gold/70 text-sm uppercase tracking-widest mb-2">Time</p>
             <p className="font-heading text-xl text-cream">5:00 PM</p>
-            <p className="text-cream/50 text-sm mt-1">Program starts at 5:00 PM</p>
+            <p className="text-cream/70 text-sm mt-1">Program starts at 5:00 PM</p>
           </motion.div>
 
           <motion.div
@@ -61,7 +61,7 @@ const EventDetails = () => {
               className="group"
             >
               <p className="font-heading text-xl text-cream group-hover:text-gold transition-colors">The Serene Woodlands</p>
-              <p className="text-cream/50 text-sm mt-1 group-hover:text-gold/70 transition-colors">200 BE Rose St., Inaon, Pulilan, Bulacan</p>
+              <p className="text-cream/70 text-sm mt-1 group-hover:text-gold/70 transition-colors">200 BE Rose St., Inaon, Pulilan, Bulacan</p>
               <p className="text-gold/40 text-xs mt-2 tracking-wider uppercase">Open in Maps</p>
             </a>
           </motion.div>
@@ -75,7 +75,7 @@ const EventDetails = () => {
           >
             <p className="text-gold/70 text-sm uppercase tracking-widest mb-2">Attire</p>
             <p className="font-heading text-xl text-cream">Semi-Formal</p>
-            <p className="text-cream/50 text-sm mt-1">Light colors: white, cream, or light brown</p>
+            <p className="text-cream/70 text-sm mt-1">Light colors: white, cream, or light brown</p>
           </motion.div>
         </div>
       </motion.div>

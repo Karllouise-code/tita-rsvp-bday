@@ -20,11 +20,11 @@ const WelcomeMessage = () => {
           Please Join Us
         </h2>
 
-        <p className="text-cream/70 text-lg leading-relaxed mb-4">
+        <p className="text-cream/80 text-lg leading-relaxed mb-4">
           Sixty years of beautiful memories, and we're just getting started!
         </p>
 
-        <p className="text-cream/50 text-base leading-relaxed">
+        <p className="text-cream/70 text-base leading-relaxed">
           Celebrate Rose's 60th birthday with an evening of good food,
           great music, and even better company.
         </p>

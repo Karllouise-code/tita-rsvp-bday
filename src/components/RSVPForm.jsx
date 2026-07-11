@@ -51,7 +51,7 @@ const RSVPForm = () => {
           <h2 className="font-heading text-3xl md:text-4xl text-gold mb-4">
             RSVP
           </h2>
-          <p className="text-cream/50 text-sm">
+          <p className="text-cream/70 text-sm">
             Kindly respond by August 2, 2026
           </p>
         </div>
@@ -65,7 +65,7 @@ const RSVPForm = () => {
               className="text-center py-12 border border-gold/20 rounded-lg bg-black/50"
             >
               <p className="font-heading text-2xl text-gold mb-4">Thank You!</p>
-              <p className="text-cream/70">
+              <p className="text-cream/80">
                 We look forward to celebrating with you.
               </p>
             </motion.div>

@@ -33,7 +33,7 @@ const TimeUnit = ({ value, label }) => (
         </motion.span>
       </AnimatePresence>
     </div>
-    <span className="mt-2 text-cream/50 text-xs uppercase tracking-widest">{label}</span>
+    <span className="mt-2 text-cream/70 text-xs uppercase tracking-widest">{label}</span>
   </div>
 )
 

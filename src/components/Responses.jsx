@@ -66,7 +66,7 @@ const Modal = ({ submission, onClose }) => {
 
           <div className="flex justify-between items-center py-3">
             <span className="text-gold/70 text-sm uppercase tracking-widest">Submitted</span>
-            <span className="text-cream/50 text-sm">
+            <span className="text-cream/70 text-sm">
               {submission.createdAt?.toDate?.().toLocaleDateString('en-US', {
                 year: 'numeric',
                 month: 'long',
@@ -129,7 +129,7 @@ const Responses = () => {
           <h1 className="font-heading text-4xl md:text-5xl text-gold mb-2">
             Rose's 60th RSVPs
           </h1>
-          <p className="text-cream/50 text-sm">Admin Dashboard</p>
+          <p className="text-cream/70 text-sm">Admin Dashboard</p>
         </div>
       </div>
 
@@ -158,7 +158,7 @@ const Responses = () => {
 
               {submissions.length === 0 ? (
                 <div className="text-center py-12 border border-gold/20 rounded-lg bg-black/50">
-                  <p className="text-cream/50">No responses yet.</p>
+                  <p className="text-cream/70">No responses yet.</p>
                 </div>
               ) : (
                 <div className="overflow-x-auto border border-gold/20 rounded-lg bg-black/50">
@@ -188,11 +188,11 @@ const Responses = () => {
                               {sub.attending}
                             </span>
                           </td>
-                          <td className="px-4 py-3 text-cream/70">{sub.guests}</td>
-                          <td className="px-4 py-3 text-cream/50 text-sm hidden md:table-cell max-w-xs truncate">
+                          <td className="px-4 py-3 text-cream/80">{sub.guests}</td>
+                          <td className="px-4 py-3 text-cream/70 text-sm hidden md:table-cell max-w-xs truncate">
                             {sub.message || '—'}
                           </td>
-                          <td className="px-4 py-3 text-cream/50 text-sm hidden sm:table-cell">
+                          <td className="px-4 py-3 text-cream/70 text-sm hidden sm:table-cell">
                             {sub.createdAt?.toDate?.().toLocaleDateString() || '—'}
                           </td>
                         </motion.tr>

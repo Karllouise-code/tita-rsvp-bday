@@ -78,7 +78,7 @@ const Hero = ({ isMuted, toggleMute }) => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 1.5 }}
-          className="flex items-center justify-center gap-4 text-cream/50 text-sm"
+          className="flex items-center justify-center gap-4 text-cream/70 text-sm"
         >
           <span className="w-12 h-px bg-gold/40" />
           <span className="tracking-widest uppercase">August 16, 2026</span>
