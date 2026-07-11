@@ -2,7 +2,16 @@ import { motion } from 'framer-motion'
 
 const EventDetails = () => {
   return (
-    <section className="py-20 px-4">
+    <section className="relative py-20 px-4 overflow-hidden">
+      <img
+        src="/images/presents (3).jpg"
+        alt=""
+        className="absolute left-0 top-1/2 -translate-y-1/2 h-[500px] w-auto object-cover opacity-25 pointer-events-none"
+        style={{
+          maskImage: 'radial-gradient(ellipse 80% 80% at 30% 50%, black 20%, transparent 70%)',
+          WebkitMaskImage: 'radial-gradient(ellipse 80% 80% at 30% 50%, black 20%, transparent 70%)',
+        }}
+      />
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}

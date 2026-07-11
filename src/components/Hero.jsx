@@ -7,6 +7,18 @@ const Hero = ({ isMuted, toggleMute }) => {
       {/* Dark gradient background with subtle orange warmth */}
       <div className="absolute inset-0 bg-gradient-to-b from-black via-[#1a0f05] to-black" />
 
+      {/* Background photo — right side */}
+      <img
+        src="/images/presents (2).jpg"
+        alt=""
+        className="absolute top-0 right-0 h-full object-cover opacity-30 pointer-events-none"
+        style={{
+          width: '50%',
+          maskImage: 'radial-gradient(ellipse 90% 80% at 80% 50%, black 20%, transparent 70%)',
+          WebkitMaskImage: 'radial-gradient(ellipse 90% 80% at 80% 50%, black 20%, transparent 70%)',
+        }}
+      />
+
       {/* Subtle orange glow accent */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-96 h-96 bg-[#D45A00]/10 rounded-full blur-3xl" />
 

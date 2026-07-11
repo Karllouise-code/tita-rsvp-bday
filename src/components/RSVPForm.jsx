@@ -34,7 +34,16 @@ const RSVPForm = () => {
   }
 
   return (
-    <section className="py-20 px-4">
+    <section className="relative py-20 px-4 overflow-hidden">
+      <img
+        src="/images/model (5).jpg"
+        alt=""
+        className="absolute right-0 top-1/2 -translate-y-1/2 h-[650px] w-auto object-cover opacity-30 pointer-events-none"
+        style={{
+          maskImage: 'radial-gradient(ellipse 90% 85% at 55% 50%, black 10%, transparent 65%)',
+          WebkitMaskImage: 'radial-gradient(ellipse 90% 85% at 55% 50%, black 10%, transparent 65%)',
+        }}
+      />
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
