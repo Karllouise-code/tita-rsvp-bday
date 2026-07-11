@@ -1,6 +1,7 @@
 import Hero from './components/Hero'
 import EventDetails from './components/EventDetails'
 import PhotoGallery from './components/PhotoGallery'
+import Countdown from './components/Countdown'
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
       <Hero />
       <EventDetails />
       <PhotoGallery />
+      <Countdown />
     </div>
   )
 }
