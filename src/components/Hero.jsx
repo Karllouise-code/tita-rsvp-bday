@@ -3,8 +3,11 @@ import { motion } from 'framer-motion'
 const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Gold gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black via-[#1a1508] to-black" />
+      {/* Dark gradient background with subtle orange warmth */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black via-[#1a0f05] to-black" />
+
+      {/* Subtle orange glow accent */}
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-96 h-96 bg-[#D45A00]/10 rounded-full blur-3xl" />
 
       {/* Ornamental gold line top */}
       <div className="absolute top-8 left-1/2 -translate-x-1/2 w-32 h-px bg-gradient-to-r from-transparent via-gold to-transparent" />
@@ -20,23 +23,25 @@ const Hero = () => {
           You're Invited
         </motion.p>
 
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="font-body text-cream/70 text-lg mb-4"
-        >
-          Celebrating 60 Years of
-        </motion.p>
-
         <motion.h1
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, delay: 1 }}
-          className="font-heading text-5xl md:text-7xl lg:text-8xl text-gold font-bold mb-8"
+          transition={{ duration: 1, delay: 0.6 }}
+          className="font-heading text-4xl md:text-6xl lg:text-7xl font-bold mb-6"
+        >
+          <span className="text-[#D45A00]">SASSY.</span>{' '}
+          <span className="text-gold">CLASSY.</span>{' '}
+          <span className="text-[#D45A00]">SIXTY.</span>
+        </motion.h1>
+
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 1 }}
+          className="font-heading text-5xl md:text-7xl lg:text-8xl text-[#D45A00] font-bold mb-8"
         >
           Rose
-        </motion.h1>
+        </motion.h2>
 
         <motion.div
           initial={{ opacity: 0 }}
