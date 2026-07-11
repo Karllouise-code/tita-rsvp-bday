@@ -54,8 +54,16 @@ const EventDetails = () => {
             className="p-6 border border-gold/20 rounded-lg bg-black/50"
           >
             <p className="text-gold/70 text-sm uppercase tracking-widest mb-2">Venue</p>
-            <p className="font-heading text-xl text-cream">The Serene Woodlands</p>
-            <p className="text-cream/50 text-sm mt-1">200 BE Rose St., Inaon, Pulilan, Bulacan</p>
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=The+Serene+Woodlands+200+BE+Rose+St+Inaon+Pulilan+Bulacan"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group"
+            >
+              <p className="font-heading text-xl text-cream group-hover:text-gold transition-colors">The Serene Woodlands</p>
+              <p className="text-cream/50 text-sm mt-1 group-hover:text-gold/70 transition-colors">200 BE Rose St., Inaon, Pulilan, Bulacan</p>
+              <p className="text-gold/40 text-xs mt-2 tracking-wider uppercase">Open in Maps</p>
+            </a>
           </motion.div>
 
           <motion.div
