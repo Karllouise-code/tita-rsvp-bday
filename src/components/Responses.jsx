@@ -22,7 +22,7 @@ const Responses = () => {
   useEffect(() => {
     const fetchSubmissions = async () => {
       try {
-        const snapshot = await getDocs(collection(db, 'rsvp-submissions'))
+        const snapshot = await getDocs(collection(db, 'rsvps'))
         const data = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }))
         // Sort manually by timestamp (newest first)
         data.sort((a, b) => {
