@@ -13,3 +13,5 @@ Task 8: complete (commit 6e09620, review clean)
 All tasks complete!
 Task 1: complete (commit 747830e, review clean)
 Task 2: complete (included in 747830e)
+Task 3: complete (commit c116711, review clean)
+Task 4: complete (build passes)

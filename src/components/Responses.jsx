@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { collection, getDocs, query, orderBy } from 'firebase/firestore'
+import { collection, getDocs } from 'firebase/firestore'
 import { db } from '../firebase'
 
 const StatCard = ({ label, value, delay }) => (
@@ -22,9 +22,14 @@ const Responses = () => {
   useEffect(() => {
     const fetchSubmissions = async () => {
       try {
-        const q = query(collection(db, 'rsvp-submissions'), orderBy('timestamp', 'desc'))
-        const snapshot = await getDocs(q)
+        const snapshot = await getDocs(collection(db, 'rsvp-submissions'))
         const data = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }))
+        // Sort manually by timestamp (newest first)
+        data.sort((a, b) => {
+          const aTime = a.timestamp?.seconds || 0
+          const bTime = b.timestamp?.seconds || 0
+          return bTime - aTime
+        })
         setSubmissions(data)
       } catch (error) {
         console.error('Error fetching submissions:', error)
