@@ -21,12 +21,13 @@ const WelcomeMessage = () => {
         </h2>
 
         <p className="text-cream/80 text-lg leading-relaxed mb-4">
-          Sixty years of beautiful memories, and we're just getting started!
+          Get ready for a night of fun games, exciting activities,
+          and unforgettable moments!
         </p>
 
         <p className="text-cream/70 text-base leading-relaxed">
-          Celebrate Rose's 60th birthday with an evening of good food,
-          great music, and even better company.
+          Join us as we celebrate Rose's milestone with laughter, prizes,
+          and a night full of entertainment hosted by our special host.
         </p>
 
         <div className="flex items-center justify-center gap-4 mt-8">
