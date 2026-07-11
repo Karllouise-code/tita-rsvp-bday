@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { collection, getDocs } from 'firebase/firestore'
 import { db } from '../firebase'
 
@@ -15,16 +15,91 @@ const StatCard = ({ label, value, delay }) => (
   </motion.div>
 )
 
+const Modal = ({ submission, onClose }) => {
+  if (!submission) return null
+
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
+      onClick={onClose}
+    >
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9, y: 20 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        exit={{ opacity: 0, scale: 0.9, y: 20 }}
+        className="w-full max-w-md p-8 border border-gold/30 rounded-xl bg-black"
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Header */}
+        <div className="text-center mb-6">
+          <div className="flex items-center justify-center gap-4 mb-4">
+            <span className="w-12 h-px bg-gold/40" />
+            <span className="text-gold text-xl">✦</span>
+            <span className="w-12 h-px bg-gold/40" />
+          </div>
+          <h3 className="font-heading text-2xl text-gold">{submission.name}</h3>
+        </div>
+
+        {/* Details */}
+        <div className="space-y-4">
+          <div className="flex justify-between items-center py-3 border-b border-gold/10">
+            <span className="text-gold/70 text-sm uppercase tracking-widest">Status</span>
+            <span className={`font-medium ${submission.attending === 'Joyfully Accept' ? 'text-green-400' : 'text-red-400'}`}>
+              {submission.attending}
+            </span>
+          </div>
+
+          <div className="flex justify-between items-center py-3 border-b border-gold/10">
+            <span className="text-gold/70 text-sm uppercase tracking-widest">Guests</span>
+            <span className="text-cream font-medium">{submission.guests}</span>
+          </div>
+
+          <div className="py-3 border-b border-gold/10">
+            <span className="text-gold/70 text-sm uppercase tracking-widest block mb-2">Message</span>
+            <p className="text-cream/80 italic">
+              {submission.message || 'No message'}
+            </p>
+          </div>
+
+          <div className="flex justify-between items-center py-3">
+            <span className="text-gold/70 text-sm uppercase tracking-widest">Submitted</span>
+            <span className="text-cream/50 text-sm">
+              {submission.timestamp?.toDate?.().toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+              }) || '—'}
+            </span>
+          </div>
+        </div>
+
+        {/* Close button */}
+        <button
+          onClick={onClose}
+          className="w-full mt-6 py-3 border border-gold/40 rounded-lg text-gold hover:bg-gold/10 transition-colors"
+        >
+          Close
+        </button>
+      </motion.div>
+    </motion.div>
+  )
+}
+
 const Responses = () => {
   const [submissions, setSubmissions] = useState([])
   const [loading, setLoading] = useState(true)
+  const [selected, setSelected] = useState(null)
 
   useEffect(() => {
     const fetchSubmissions = async () => {
       try {
         const snapshot = await getDocs(collection(db, 'rsvps'))
         const data = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }))
-        // Sort manually by timestamp (newest first)
         data.sort((a, b) => {
           const aTime = a.timestamp?.seconds || 0
           const bTime = b.timestamp?.seconds || 0
@@ -104,7 +179,8 @@ const Responses = () => {
                           initial={{ opacity: 0 }}
                           animate={{ opacity: 1 }}
                           transition={{ duration: 0.3, delay: index * 0.05 }}
-                          className="border-b border-gold/10 last:border-0"
+                          className="border-b border-gold/10 last:border-0 cursor-pointer hover:bg-gold/5 transition-colors"
+                          onClick={() => setSelected(sub)}
                         >
                           <td className="px-4 py-3 text-cream font-medium">{sub.name}</td>
                           <td className="px-4 py-3">
@@ -139,6 +215,13 @@ const Responses = () => {
           </>
         )}
       </div>
+
+      {/* Modal */}
+      <AnimatePresence>
+        {selected && (
+          <Modal submission={selected} onClose={() => setSelected(null)} />
+        )}
+      </AnimatePresence>
     </div>
   )
 }
