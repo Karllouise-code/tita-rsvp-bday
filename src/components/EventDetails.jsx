@@ -42,8 +42,8 @@ const EventDetails = () => {
             className="p-6 border border-gold/20 rounded-lg bg-black/50"
           >
             <p className="text-gold/70 text-sm uppercase tracking-widest mb-2">Time</p>
-            <p className="font-heading text-xl text-cream">[TBD]</p>
-            <p className="text-cream/50 text-sm mt-1">Cocktails start at [TBD]</p>
+            <p className="font-heading text-xl text-cream">5:00 PM</p>
+            <p className="text-cream/50 text-sm mt-1">Program starts at 5:00 PM</p>
           </motion.div>
 
           <motion.div
