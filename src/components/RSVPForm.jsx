@@ -34,7 +34,7 @@ const RSVPForm = () => {
   }
 
   return (
-    <section className="relative py-20 px-4 overflow-hidden">
+    <section id="rsvp" className="relative py-20 px-4 overflow-hidden">
       <img
         src="/images/model (5).jpg"
         alt=""
