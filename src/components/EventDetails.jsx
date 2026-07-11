@@ -67,7 +67,7 @@ const EventDetails = () => {
           >
             <p className="text-gold/70 text-sm uppercase tracking-widest mb-2">Attire</p>
             <p className="font-heading text-xl text-cream">Semi-Formal</p>
-            <p className="text-cream/50 text-sm mt-1">Filipiniana encouraged</p>
+            <p className="text-cream/50 text-sm mt-1">Light colors: white, cream, or light brown</p>
           </motion.div>
         </div>
       </motion.div>
