@@ -30,7 +30,7 @@ const Modal = ({ submission, onClose }) => {
         initial={{ opacity: 0, scale: 0.9, y: 20 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.9, y: 20 }}
-        className="w-full max-w-md p-8 border border-gold/30 rounded-xl bg-black"
+        className="w-full max-w-md p-8 border border-gold/30 rounded-xl bg-black overflow-hidden"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
@@ -59,7 +59,7 @@ const Modal = ({ submission, onClose }) => {
 
           <div className="py-3 border-b border-gold/10">
             <span className="text-gold/70 text-sm uppercase tracking-widest block mb-2">Message</span>
-            <p className="text-cream/80 italic">
+            <p className="text-cream/80 italic break-words">
               {submission.message || 'No message'}
             </p>
           </div>
