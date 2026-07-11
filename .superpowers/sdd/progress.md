@@ -11,3 +11,5 @@ Task 7: complete (commit 3b60c2b, review clean)
 Task 8: complete (commit 6e09620, review clean)
 
 All tasks complete!
+Task 1: complete (commit 747830e, review clean)
+Task 2: complete (included in 747830e)

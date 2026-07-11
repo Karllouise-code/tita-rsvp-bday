@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Hero from './components/Hero'
 import WelcomeMessage from './components/WelcomeMessage'
 import EventDetails from './components/EventDetails'
@@ -6,16 +7,16 @@ import PhotoGallery from './components/PhotoGallery'
 import Countdown from './components/Countdown'
 import RSVPForm from './components/RSVPForm'
 import Footer from './components/Footer'
+import Responses from './components/Responses'
 
-function App() {
-  const [isMuted, setIsMuted] = useState(false)
+function HomePage() {
+  const [isMuted, setIsMuted] = useState(true)
   const audioRef = useRef(null)
 
   useEffect(() => {
     if (audioRef.current) {
       audioRef.current.volume = 0.5
       audioRef.current.play().catch(() => {
-        // Browser blocked autoplay — user will need to click unmute
         setIsMuted(true)
         audioRef.current.muted = true
       })
@@ -35,8 +36,7 @@ function App() {
 
   return (
     <div className="min-h-screen bg-black text-cream font-body">
-      {/* Background music - autoplay muted */}
-      <audio ref={audioRef} loop autoPlay>
+      <audio ref={audioRef} loop muted autoPlay>
         <source src="/music/background.mp3" type="audio/mpeg" />
       </audio>
 
@@ -48,6 +48,17 @@ function App() {
       <RSVPForm />
       <Footer />
     </div>
+  )
+}
+
+function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/responses" element={<Responses />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
