@@ -159,6 +159,8 @@ const InfiniteStrip = ({ photos, onImageClick }) => {
       className="overflow-hidden rounded-xl border border-gold/20 select-none"
       onMouseEnter={() => { pausedRef.current = true }}
       onMouseLeave={() => { pausedRef.current = false }}
+      onTouchStart={() => { pausedRef.current = true }}
+      onTouchEnd={() => { pausedRef.current = false }}
     >
       <div
         ref={trackRef}
