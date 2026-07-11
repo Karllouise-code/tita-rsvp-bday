@@ -67,7 +67,7 @@ const Modal = ({ submission, onClose }) => {
           <div className="flex justify-between items-center py-3">
             <span className="text-gold/70 text-sm uppercase tracking-widest">Submitted</span>
             <span className="text-cream/50 text-sm">
-              {submission.timestamp?.toDate?.().toLocaleDateString('en-US', {
+              {submission.createdAt?.toDate?.().toLocaleDateString('en-US', {
                 year: 'numeric',
                 month: 'long',
                 day: 'numeric',
@@ -101,8 +101,8 @@ const Responses = () => {
         const snapshot = await getDocs(collection(db, 'rsvps'))
         const data = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }))
         data.sort((a, b) => {
-          const aTime = a.timestamp?.seconds || 0
-          const bTime = b.timestamp?.seconds || 0
+          const aTime = a.createdAt?.seconds || 0
+          const bTime = b.createdAt?.seconds || 0
           return bTime - aTime
         })
         setSubmissions(data)
@@ -193,7 +193,7 @@ const Responses = () => {
                             {sub.message || '—'}
                           </td>
                           <td className="px-4 py-3 text-cream/50 text-sm hidden sm:table-cell">
-                            {sub.timestamp?.toDate?.().toLocaleDateString() || '—'}
+                            {sub.createdAt?.toDate?.().toLocaleDateString() || '—'}
                           </td>
                         </motion.tr>
                       ))}
