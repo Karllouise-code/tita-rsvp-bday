@@ -40,7 +40,7 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 1 }}
           className="font-heading text-5xl md:text-7xl lg:text-8xl text-[#D45A00] font-bold mb-8"
         >
-          Rose
+          ROSE
         </motion.h2>
 
         <motion.div
