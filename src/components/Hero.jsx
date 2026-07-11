@@ -34,14 +34,24 @@ const Hero = () => {
           <span className="text-[#D45A00]">SIXTY.</span>
         </motion.h1>
 
-        <motion.h2
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1 }}
-          className="font-heading text-5xl md:text-7xl lg:text-8xl text-[#D45A00] font-bold mb-8"
+          className="flex justify-center gap-4 md:gap-6 mb-8"
         >
-          ROSE
-        </motion.h2>
+          {['R', 'O', 'S', 'E'].map((letter, index) => (
+            <motion.span
+              key={letter}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 1 + index * 0.15 }}
+              className="font-heading text-7xl md:text-9xl lg:text-[10rem] text-[#D45A00] font-bold leading-none"
+            >
+              {letter}
+            </motion.span>
+          ))}
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0 }}
