@@ -8,3 +8,6 @@ Task 4: complete (commit 09da8cc, review clean)
 Task 5: complete (commit ed0d1e3, review clean)
 Task 6: complete (commit 26c1bcd, review clean)
 Task 7: complete (commit 3b60c2b, review clean)
+Task 8: complete (commit 6e09620, review clean)
+
+All tasks complete!
