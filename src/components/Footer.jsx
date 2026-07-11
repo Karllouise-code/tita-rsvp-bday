@@ -17,7 +17,7 @@ const Footer = () => {
 
   const handleShare = async () => {
     const shareData = {
-      title: "Tita's 60th Birthday Celebration",
+      title: "Rose's 60th Birthday Celebration",
       text: "You're invited to celebrate 60 years of joy! Join us on August 16, 2026.",
       url: window.location.href,
     }

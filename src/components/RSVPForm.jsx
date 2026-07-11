@@ -144,7 +144,7 @@ const RSVPForm = () => {
 
               <div>
                 <label className="block text-gold/70 text-sm uppercase tracking-widest mb-2">
-                  Message for Tita (Optional)
+                  Message for Rose (Optional)
                 </label>
                 <textarea
                   name="message"
@@ -152,7 +152,7 @@ const RSVPForm = () => {
                   onChange={handleChange}
                   rows={3}
                   className="w-full px-4 py-3 bg-transparent border border-gold/30 rounded-lg text-cream placeholder-cream/30 focus:outline-none focus:border-gold transition-colors resize-none"
-                  placeholder="A birthday message for Tita..."
+                  placeholder="A birthday message for Rose..."
                 />
               </div>
 
