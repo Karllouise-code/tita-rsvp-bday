@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
-const targetDate = new Date('2026-08-16T00:00:00').getTime()
+const targetDate = new Date('2026-08-16T17:00:00').getTime()
 
 const calculateTimeLeft = () => {
   const now = new Date().getTime()
