@@ -121,6 +121,7 @@ const RSVPForm = () => {
                 </div>
               </div>
 
+              {formData.attending === 'Joyfully Accept' && (
               <div>
                 <label className="block text-gold/70 text-sm uppercase tracking-widest mb-2">
                   Number of Guests
@@ -135,6 +136,7 @@ const RSVPForm = () => {
                   className="w-full px-4 py-3 bg-transparent border border-gold/30 rounded-lg text-cream focus:outline-none focus:border-gold transition-colors"
                 />
               </div>
+              )}
 
               <div>
                 <label className="block text-gold/70 text-sm uppercase tracking-widest mb-2">
