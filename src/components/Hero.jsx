@@ -107,7 +107,7 @@ const Hero = ({ isMuted, toggleMute }) => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 2, duration: 0.8 }}
         onClick={() => document.getElementById('rsvp')?.scrollIntoView({ behavior: 'smooth' })}
-        className="absolute bottom-12 left-1/2 -translate-x-1/2 z-10 px-8 py-3 bg-gold text-black font-semibold rounded-lg hover:bg-gold-light transition-colors flex items-center gap-2"
+        className="absolute bottom-12 left-1/2 -translate-x-1/2 z-10 px-8 py-3 bg-gold text-black font-semibold rounded-lg hover:bg-gold-light transition-colors flex items-center justify-center gap-2"
       >
         RSVP Now
         <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
