@@ -74,9 +74,19 @@ const RSVPForm = () => {
               className="text-center py-12 border border-gold/20 rounded-lg bg-black/50"
             >
               <p className="font-heading text-2xl text-gold mb-4">Thank You!</p>
-              <p className="text-cream/80">
+              <p className="text-cream/80 mb-6">
                 We look forward to celebrating with you.
               </p>
+              <button
+                type="button"
+                onClick={() => {
+                  setStatus('idle')
+                  setFormData({ name: '', attending: '', guests: 1, message: '' })
+                }}
+                className="px-6 py-2 border border-gold/40 text-gold text-sm rounded-lg hover:bg-gold/10 transition-colors"
+              >
+                Submit Another Response
+              </button>
             </motion.div>
           ) : (
             <motion.form
