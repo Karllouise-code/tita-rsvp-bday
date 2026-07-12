@@ -15,12 +15,28 @@ function HomePage() {
   const audioRef = useRef(null)
 
   useEffect(() => {
-    if (audioRef.current) {
-      audioRef.current.volume = 0.5
-      audioRef.current.play().catch(() => {
-        setIsMuted(true)
-        audioRef.current.muted = true
-      })
+    if (!audioRef.current) return
+    audioRef.current.volume = 0.5
+
+    const tryPlay = () => {
+      audioRef.current?.play().catch(() => {})
+    }
+
+    // Try autoplay immediately (works in some browsers)
+    tryPlay()
+
+    // Fallback: play on first user interaction (required by most browsers)
+    const handleInteraction = () => {
+      tryPlay()
+      document.removeEventListener('click', handleInteraction)
+      document.removeEventListener('touchstart', handleInteraction)
+    }
+    document.addEventListener('click', handleInteraction)
+    document.addEventListener('touchstart', handleInteraction)
+
+    return () => {
+      document.removeEventListener('click', handleInteraction)
+      document.removeEventListener('touchstart', handleInteraction)
     }
   }, [])
 
@@ -28,7 +44,9 @@ function HomePage() {
     if (!audioRef.current) return
     if (isMuted) {
       audioRef.current.muted = false
-      audioRef.current.play().catch(() => {})
+      audioRef.current.play().catch(() => {
+        audioRef.current.muted = true
+      })
     } else {
       audioRef.current.muted = true
     }
