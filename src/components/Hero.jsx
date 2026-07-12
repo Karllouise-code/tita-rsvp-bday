@@ -96,6 +96,15 @@ const Hero = ({ isMuted, toggleMute }) => {
           <span className="tracking-widest uppercase">August 16, 2026</span>
           <span className="w-12 h-px bg-gold/40" />
         </motion.div>
+
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 1.8 }}
+          className="mt-6 text-gold/70 text-sm tracking-widest uppercase"
+        >
+          Singing Host: Bri
+        </motion.p>
       </div>
 
       {/* Ornamental gold line bottom */}
