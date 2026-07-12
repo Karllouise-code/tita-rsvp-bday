@@ -53,7 +53,7 @@ const Footer = () => {
             <span className="w-16 h-px bg-gold/20" />
           </div>
           <p className="text-cream/30 text-xs">
-            Hosted with love by Family
+            Made with love by the Family
           </p>
         </div>
       </motion.div>
