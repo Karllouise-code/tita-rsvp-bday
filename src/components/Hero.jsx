@@ -103,7 +103,7 @@ const Hero = ({ isMuted, toggleMute }) => {
           transition={{ duration: 1, delay: 1.8 }}
           className="mt-6 text-gold/70 text-sm tracking-widest uppercase"
         >
-          Singing Host: Bri
+          Singing Host Bri
         </motion.p>
       </div>
 
