@@ -99,10 +99,10 @@ const Hero = ({ isMuted, toggleMute }) => {
       </div>
 
       {/* Ornamental gold line bottom */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 w-32 h-px bg-gradient-to-r from-transparent via-gold to-transparent" />
+      <div className="absolute bottom-20 md:bottom-8 left-1/2 -translate-x-1/2 w-32 h-px bg-gradient-to-r from-transparent via-gold to-transparent" />
 
       {/* RSVP CTA button */}
-      <div className="absolute bottom-12 left-0 right-0 z-10 flex justify-center">
+      <div className="absolute bottom-24 md:bottom-12 left-0 right-0 z-10 flex justify-center">
         <motion.button
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
