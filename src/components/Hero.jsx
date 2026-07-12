@@ -102,18 +102,20 @@ const Hero = ({ isMuted, toggleMute }) => {
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 w-32 h-px bg-gradient-to-r from-transparent via-gold to-transparent" />
 
       {/* RSVP CTA button */}
-      <motion.button
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 2, duration: 0.8 }}
-        onClick={() => document.getElementById('rsvp')?.scrollIntoView({ behavior: 'smooth' })}
-        className="absolute bottom-12 left-1/2 -translate-x-1/2 z-10 px-8 py-3 bg-gold text-black font-semibold rounded-lg hover:bg-gold-light transition-colors flex items-center justify-center gap-2"
-      >
-        RSVP Now
-        <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-        </svg>
-      </motion.button>
+      <div className="absolute bottom-12 left-0 right-0 z-10 flex justify-center">
+        <motion.button
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 2, duration: 0.8 }}
+          onClick={() => document.getElementById('rsvp')?.scrollIntoView({ behavior: 'smooth' })}
+          className="px-8 py-3 bg-gold text-black font-semibold rounded-lg hover:bg-gold-light transition-colors flex items-center justify-center gap-2"
+        >
+          RSVP Now
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+          </svg>
+        </motion.button>
+      </div>
     </section>
   )
 }
