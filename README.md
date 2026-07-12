@@ -2,7 +2,7 @@
 
 An elegant invitation website for Rose's 60th birthday celebration — "Sassy. Classy. Sixty."
 
-**Live Site:** [roselia-rito-bday.netlify.app](https://roselia-rito-bday.netlify.app)
+**Live Site:** [rosela60th.netlify.app](https://rosela60th.netlify.app)
 
 ## Features
 
