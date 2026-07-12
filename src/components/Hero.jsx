@@ -101,21 +101,19 @@ const Hero = ({ isMuted, toggleMute }) => {
       {/* Ornamental gold line bottom */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 w-32 h-px bg-gradient-to-r from-transparent via-gold to-transparent" />
 
-      {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 2, duration: 1 }}
-        className="absolute bottom-12 left-1/2 -translate-x-1/2"
+      {/* RSVP CTA button */}
+      <motion.button
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 2, duration: 0.8 }}
+        onClick={() => document.getElementById('rsvp')?.scrollIntoView({ behavior: 'smooth' })}
+        className="absolute bottom-12 left-1/2 -translate-x-1/2 z-10 px-8 py-3 bg-gold text-black font-semibold rounded-lg hover:bg-gold-light transition-colors flex items-center gap-2"
       >
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ repeat: Infinity, duration: 1.5 }}
-          className="w-5 h-8 border-2 border-gold/40 rounded-full flex justify-center pt-1"
-        >
-          <div className="w-1 h-2 bg-gold/60 rounded-full" />
-        </motion.div>
-      </motion.div>
+        RSVP Now
+        <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+        </svg>
+      </motion.button>
     </section>
   )
 }
