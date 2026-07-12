@@ -51,7 +51,7 @@ const FloatingRSVP = () => {
           exit={{ opacity: 0, x: 40 }}
           transition={{ duration: 0.3 }}
           onClick={scrollToRSVP}
-          className="fixed bottom-6 right-6 z-50 px-5 py-3 bg-gold text-black font-semibold rounded-full shadow-lg hover:bg-gold-light transition-colors flex items-center gap-2"
+          className="fixed bottom-6 right-6 z-50 px-5 py-3 bg-black/40 backdrop-blur-md border border-gold/40 text-gold font-semibold rounded-full hover:bg-black/50 hover:border-gold/60 transition-all flex items-center gap-2 shadow-lg"
         >
           RSVP Now
           <span className="text-lg">✦</span>
