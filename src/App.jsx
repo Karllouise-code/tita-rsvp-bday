@@ -56,7 +56,7 @@ function HomePage() {
   return (
     <div className="min-h-screen bg-black text-cream font-body">
       <audio ref={audioRef} loop muted autoPlay>
-        <source src="/music/bg_music.mp3" type="audio/mpeg" />
+        <source src="/music/background.mp3" type="audio/mpeg" />
       </audio>
 
       <Hero isMuted={isMuted} toggleMute={toggleMute} />

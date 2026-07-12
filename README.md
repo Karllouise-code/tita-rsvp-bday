@@ -88,7 +88,7 @@ npm run build
 ```
 ├── public/
 │   ├── images/          # Static images
-│   └── music/           # Background music (bg_music.mp3)
+│   └── music/           # Background music (background.mp3)
 ├── src/
 │   ├── components/
 │   │   ├── Hero.jsx             # Hero section with animated title
