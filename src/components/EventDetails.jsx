@@ -87,6 +87,16 @@ const EventDetails = () => {
             <p className="text-cream/70 text-sm mt-1">Light colors: white, cream, or light brown</p>
           </motion.div>
         </div>
+
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 1 }}
+          className="mt-10 text-gold/70 text-sm tracking-widest uppercase"
+        >
+          Singing Host Bri
+        </motion.p>
       </motion.div>
     </section>
   )
