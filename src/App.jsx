@@ -8,6 +8,7 @@ import Countdown from './components/Countdown'
 import RSVPForm from './components/RSVPForm'
 import Footer from './components/Footer'
 import Responses from './components/Responses'
+import FloatingRSVP from './components/FloatingRSVP'
 
 function HomePage() {
   const [isMuted, setIsMuted] = useState(true)
@@ -47,6 +48,7 @@ function HomePage() {
       <Countdown />
       <RSVPForm />
       <Footer />
+      <FloatingRSVP />
     </div>
   )
 }
