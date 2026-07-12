@@ -27,7 +27,8 @@ const WelcomeMessage = () => {
 
         <p className="text-cream/70 text-base leading-relaxed">
           Join us as we celebrate Rose's milestone with laughter, prizes,
-          and a night full of entertainment hosted by our special host.
+          and a night full of entertainment hosted by our special host:{' '}
+          <span className="text-gold font-semibold">Singing Host Bri</span>.
         </p>
 
         <div className="flex items-center justify-center gap-4 mt-8">
